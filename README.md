@@ -1,4 +1,4 @@
-# VIP-Billionaires
+# Office App
 React Native &amp; Firebase
 
 ## Getting Started
