@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 16,
     borderWidth: 0,
+    
   },
   searchHereText: {
     color: '#828282',

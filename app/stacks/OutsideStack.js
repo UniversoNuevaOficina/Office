@@ -9,6 +9,13 @@ import OnBoardingView from '../views/OnBoardingView'
 import AboutView from '../views/AboutView'
 import { COLOR_WHITE, themes } from '../constants/colors'
 import HeaderLeft from '../containers/HeaderLeft'
+import MetamaskInstallView from '../views/MetamaskInstallView'
+import OldAccount from '../views/OldAccount'
+import OldSignInView from '../views/OldSignInView'
+import OldTransactionImport from '../views/OldTransactionImport'
+import OldDataImported from '../views/OldDataImported'
+import CreatePINView from '../views/CreatePINView'
+import CreateNickName from '../views/CreateNickName'
 
 // Outside
 const Outside = createStackNavigator()
@@ -17,7 +24,7 @@ const OutsideStack = () => {
 
   return (
     <Outside.Navigator
-      initialRouteName="SignIn"
+      initialRouteName="MetamaskInstall"
       screenOptions={{
         ...outsideHeader,
         ...themedHeader(theme),
@@ -30,8 +37,43 @@ const OutsideStack = () => {
         options={{ headerShown: false }}
       />
       <Outside.Screen
+        name="MetamaskInstall"
+        component={MetamaskInstallView}
+        options={{ headerShown: false }}
+      />
+      <Outside.Screen
+        name="OldAccount"
+        component={OldAccount}
+        options={{ headerShown: false }}
+      />
+      <Outside.Screen
+        name="CreatePin"
+        component={CreatePINView}
+        options={{ headerShown: false }}
+      />
+      <Outside.Screen
+        name="CreateNickName"
+        component={CreateNickName}
+        options={{ headerShown: false }}
+      />
+      <Outside.Screen
+        name="OldTransactionImport"
+        component={OldTransactionImport}
+        options={{ headerShown: false }}
+      />
+      <Outside.Screen
+        name="OldDataImported"
+        component={OldDataImported}
+        options={{ headerShown: false }}
+      />
+      <Outside.Screen
         name="SignIn"
         component={SignInView}
+        options={{ headerShown: false }}
+      />
+      <Outside.Screen
+        name="OldSignIn"
+        component={OldSignInView}
         options={{ headerShown: false }}
       />
       <Outside.Screen

@@ -39,7 +39,7 @@ import MainHeader from '../../containers/MainHeader';
 
 import BalanceDetail from './BalanceDetail';
 import NavButton from './NavButton';
-
+import { ImageBackground } from 'react-native';
 const DetailsView = props => {
   const navigation = useNavigation();
   const [state, setState] = useState({
@@ -51,6 +51,10 @@ const DetailsView = props => {
 
   return (
     <MainScreen navigation={navigation} style={{backgroundColor: '#141436'}}>
+      <ImageBackground
+       source={images.home_background}
+       style={styles.backgroundImage}
+      >
       <MainHeader />
 
       {isUpdating && (
@@ -63,6 +67,7 @@ const DetailsView = props => {
         <NavButton name={'Direct / Indirect Sales'} />
         <NavButton name={'Statistics'} />
       </View>
+      </ImageBackground>
     </MainScreen>
   );
 };

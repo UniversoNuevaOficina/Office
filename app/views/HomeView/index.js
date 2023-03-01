@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {connect} from 'react-redux';
+import React, { useEffect, useState, useRef } from 'react';
+import { connect } from 'react-redux';
 import {
   FlatList,
   Image,
@@ -8,11 +8,11 @@ import {
   Text,
   Dimensions,
   useWindowDimensions,
-  TouchableOpacity,
+  ImageBackground,
   ScrollView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 import StatusBar from '../../containers/StatusBar';
 import ActivityIndicator from '../../containers/ActivityIndicator';
@@ -22,21 +22,18 @@ import MainScreen from '../../containers/MainScreen';
 
 import I18n from '../../i18n';
 import styles from './styles';
-import images from '../../assets/images';
-
-import {withActionSheet} from '../../containers/ActionSheet';
+import { withActionSheet } from '../../containers/ActionSheet';
 import scrollPersistTaps from '../../utils/scrollPersistTaps';
-import {withTheme} from '../../theme';
-import {COLOR_WHITE} from '../../constants/colors';
+import { withTheme } from '../../theme';
+import { COLOR_WHITE } from '../../constants/colors';
 
 import BalanceDetail from './BalanceDetail';
 import BuyButton from './BuyButton';
 import RecentActivity from './RecentActivity';
 import CardDataItem from './CardDataItem';
 
-import LinearGradient from 'react-native-linear-gradient';
-
-const {width} = Dimensions.get('screen');
+import images from '../../assets/images';
+const { width } = Dimensions.get('screen');
 
 const HomeView = props => {
   const navigation = useNavigation();
@@ -45,29 +42,37 @@ const HomeView = props => {
     loading: false,
     isUpdating: false,
   });
-  const {loading, isUpdating, refreshing} = state;
+  const { loading, isUpdating, refreshing } = state;
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
+
     <MainScreen
       navigation={navigation}
-      style={{backgroundColor: '#141436', paddingBottom: tabBarHeight}}>
-      <StatusBar />
-      <MainHeader />
-      {isUpdating && (
-        <ActivityIndicator absolute theme={theme} size={'large'} />
-      )}
-      <ScrollView style={{flexGrow: 1}}>
-        <BalanceDetail />
-        <View style={styles.btnContainer}>
-          <BuyButton name={'Buy Investment'} />
-          <BuyButton name={'Buy Blockchain'} />
-          <BuyButton name={'Buy Products'} />
-        </View>
-        <CardDataItem />
-        <RecentActivity />
-      </ScrollView>
+      style={{backgroundColor: 'transparent', paddingBottom: tabBarHeight-30 }}
+    >
+      <ImageBackground
+        source={images.home_background}
+        style={styles.backgroundImage}
+      >
+        <StatusBar />
+        <MainHeader />
+        {isUpdating && (
+          <ActivityIndicator absolute theme={theme} size={'large'} />
+        )}
+        <ScrollView style={{ flexGrow: 1 }}>
+          <BalanceDetail />
+          <View style={styles.btnContainer}>
+            <BuyButton name={'Buy Investment'} />
+            <BuyButton name={'Buy Blockchain'} />
+            <BuyButton name={'Buy Products'} />
+          </View>
+          <CardDataItem />
+          <RecentActivity />
+        </ScrollView>
+      </ImageBackground>
     </MainScreen>
+
   );
 };
 

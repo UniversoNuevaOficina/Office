@@ -14,7 +14,7 @@ const BalanceDetail = ({}) => {
       <View style={styles.headerContainer}>
         <Image source={images.ico_atomo} style={styles.avatarIcon} />
         <Text style={[styles.balanceText, {color: COLOR_WHITE}]}>
-          <Text style={{fontWeight: '800'}}>Atomo</Text> Balanace
+          <Text style={{fontWeight: '800'}}>Atomso</Text> Balanace
         </Text>
       </View>
 

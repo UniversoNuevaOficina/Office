@@ -11,7 +11,10 @@ export default StyleSheet.create({
   },
   notificationBox: {
     paddingHorizontal: 35,
-    paddingVertical: 20,
+    paddingBottom:20,
+    backgroundColor:"#02010c",
+    borderBottomLeftRadius:30,
+    borderBottomRightRadius:30,
   },
   searchContainer: {
     paddingHorizontal: 37,

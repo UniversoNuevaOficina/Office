@@ -13,7 +13,7 @@ export const COLOR_BTN_BORDER = '#585858';
 export const COLOR_INPUT_BORDER = '#f4f4f';
 
 export const COLOR_SKY = '#01dfcc';
-export const COLOR_ULTRAMARINE = '#07052d';
+export const COLOR_ULTRAMARINE = '#141436';
 export const COLOR_DARKBLACK = '#02010c';
 
 export const themes = {

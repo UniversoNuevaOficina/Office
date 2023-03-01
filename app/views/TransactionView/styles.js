@@ -4,6 +4,9 @@ export default StyleSheet.create({
   searchContainer: {
     paddingHorizontal: 37,
     paddingBottom: 23,
+    borderBottomLeftRadius:30,
+    borderBottomRightRadius:30,
+    backgroundColor:"#02010c"
   },
   searchBtn: {
     width: 24,

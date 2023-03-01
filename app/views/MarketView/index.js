@@ -134,9 +134,11 @@ const MarketView = props => {
   };
 
   return (
-    <MainScreen style={{backgroundColor: COLOR_DARKBLACK}}>
+    <MainScreen style={{backgroundColor: "#141436"}}>
+      <View style ={{backgroundColor:"#02010c"}}>
       <StatusBar />
       <MainHeader />
+      </View>
       <View style={styles.notificationBox}>
         <Text style={[styles.notificationText, {color: COLOR_WHITE}]}>
           Shop Market

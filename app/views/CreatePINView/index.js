@@ -1,5 +1,5 @@
-import React, {useRef, useState} from 'react';
-import {connect} from 'react-redux';
+import React, { useRef, useState } from 'react';
+import { connect } from 'react-redux';
 import {
   Image,
   SafeAreaView,
@@ -11,23 +11,88 @@ import {
   ImageBackground,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
-import {withTheme} from '../../theme';
+import { withTheme } from '../../theme';
 import sharedStyles from '../Styles';
 import styles from './styles';
 import images from '../../assets/images';
-import {COLOR_WHITE, COLOR_YELLOW} from '../../constants/colors';
+import { COLOR_WHITE, COLOR_YELLOW } from '../../constants/colors';
 
 import scrollPersistTaps from '../../utils/scrollPersistTaps';
-import {CURRENT_USER} from '../../constants/keys';
-import {appStart as appStartAction} from '../../actions/app';
+import { CURRENT_USER } from '../../constants/keys';
+import { appStart as appStartAction } from '../../actions/app';
 
 import StatusBar from '../../containers/StatusBar';
 import KeyboardView from '../../containers/KeyboardView';
 
 const CreatePINView = props => {
   const navigation = useNavigation();
+
+
+
+  const [pin, setPin] = useState(['', '', '', '', '', '']);
+  const refs = useRef([]);
+  const [fullPin, setFullPin] = useState(false)
+
+  const handlePinChange = (index, value) => {
+
+    if (index > 0 && !pin[index - 1]) {
+      return;
+    }
+
+
+
+
+    const newPin = [...pin];
+    newPin[index] = value;
+    setPin(newPin);
+
+    if (index < 5 && value) {
+      refs.current[index + 1].focus();
+      setFullPin(false)
+    } else if (index === 5 && value) {
+      // Call function for handling the full pin
+      handleFullPin(newPin.join(''));
+    }
+  };
+
+  const handleFullPin = (pin) => {
+    // Handle the full pin here
+    console.log('Full pin:', pin);
+    setFullPin(true)
+  };
+
+  const handleFocus = (index) => {
+    // if (index > 0 && pin[index] === '') {
+    //   refs.current[index - 1].focus();
+    // }
+  };
+
+  const handleKeyPress = (index, key) => {
+    if (key === 'Backspace' && pin[index] === '') {
+      if (index > 0) {
+        refs.current[index - 1].focus();
+      } else {
+        refs.current[0].focus();
+      }
+    }
+  };
+
+  const handleContinue = () => {
+    navigation.navigate("CreateNickName")
+  }
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <SafeAreaView
@@ -41,7 +106,7 @@ const CreatePINView = props => {
           style={sharedStyles.container}
           keyboardVerticalOffset={128}>
           <ScrollView
-            style={{flex: 1, height: '100%'}}
+            style={{ flex: 1, height: '100%' }}
             {...scrollPersistTaps}
             keyboardShouldPersistTaps="handled">
             <View style={sharedStyles.headerContainer}>
@@ -52,7 +117,7 @@ const CreatePINView = props => {
             <View style={styles.formContainer}>
               <View style={styles.description}>
                 <Text style={styles.loginText}>
-                  Create a <Text style={{fontWeight: '700'}}>6-digit code</Text>
+                 {!fullPin?<> Create a </> : <>This is your </> }  <Text style={{ fontWeight: '700' }}>6-digit code</Text>
                 </Text>
               </View>
               <View
@@ -60,13 +125,27 @@ const CreatePINView = props => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                 }}>
-                {new Array(6).fill(null).map((_, index) => (
+                {pin.map((digit, index) => (
                   <TextInput
-                    key={'ti' + index}
+                    key={index}
+                    ref={(input) => (refs.current[index] = input)}
                     style={[
                       styles.digitBox,
-                      {borderColor: COLOR_WHITE, color: COLOR_WHITE},
-                    ]}></TextInput>
+                      {borderColor: COLOR_WHITE, color: COLOR_WHITE} ,]}                   value={digit}
+                    onChangeText={(text) => handlePinChange(index, text)}
+                    keyboardType="numeric"
+                    maxLength={1}
+                    returnKeyType="next"
+                    blurOnSubmit={false}
+                    onSubmitEditing={() => {
+                      if (index < 5) {
+                        refs.current[index + 1].focus();
+                      }
+                    }}
+
+                    onKeyPress={({ nativeEvent }) => handleKeyPress(index, nativeEvent.key)}
+                    onFocus={() => handleFocus(index)}
+                  />
                 ))}
               </View>
             </View>
@@ -75,20 +154,20 @@ const CreatePINView = props => {
 
         <LinearGradient
           colors={['#6c40bd', '#1b97c0', '#01dfcc']}
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 1}}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
           locations={[0, 0.67, 1]}
           style={{
             marginHorizontal: 20,
             marginBottom: 30,
             borderRadius: 43,
           }}>
-          <TouchableOpacity style={styles.registerButton}>
-            <View style={{flex: 1, justifyContent: 'center'}}>
+          <TouchableOpacity disabled ={!fullPin} style={styles.registerButton} onPress = {handleContinue}>
+            <View style={{ flex: 1, justifyContent: 'center' }}>
               <Text style={styles.registerText}>CONTINUE</Text>
             </View>
           </TouchableOpacity>
-        </LinearGradient>
+        </LinearGradient> 
       </ImageBackground>
     </SafeAreaView>
   );

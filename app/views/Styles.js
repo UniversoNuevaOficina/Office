@@ -5,6 +5,7 @@ import {COLOR_DANGER, COLOR_SEPARATOR} from '../constants/colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
+  
   },
   contentContainer: {
     borderTopLeftRadius: 30,
@@ -27,7 +28,7 @@ export default StyleSheet.create({
     color: 'white',
   },
   headerContainer: {
-    marginTop: 44,
+    marginTop: 24,
     justifyContent: 'center',
     alignItems: 'center',
     height: 210,

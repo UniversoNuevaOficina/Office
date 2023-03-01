@@ -4,12 +4,12 @@ export const POST_TYPE_TEXT = 'text';
 export const POST_TYPE_PHOTO = 'photo';
 export const POST_TYPE_VIDEO = 'video';
 
-export const SITE_SHOP_URL = 'https://www..com';
+export const SITE_SHOP_URL = 'https://www.vipbillionaires.com';
 export const SITE_VIP_MEMBERS_URL =
-  'https://www';
+  'https://www.vipbillionaires.com/vip-members';
 export const CLOUD_URL =
-  'https://us-central1---c07df.cloudfunctions.net';
-export const MERCHANT_ID = 'merchant.com.ninasoft.';
+  'https://us-central1-vip-billionaires-c07df.cloudfunctions.net';
+export const MERCHANT_ID = 'merchant.com.ninasoft.vipbillionaires';
 
 export const Genders = [
   { value: 'male', text: I18n.t('Male') },

@@ -120,6 +120,10 @@ const images = {
   test_product: require('./images/test_product.png'),
   ico_close: require('./images/ico_close.png'),
   ico_search: require('./images/ico_search.png'),
+  home_background: require('./images/backgrounds/Background/Home.jpg'),
+  metamask_image: require('./images/backgrounds/Icon/metamask.png'),
+  logo_white: require('./images/backgrounds/Icon/logoWhite.png'),
+  tick_circle: require('./images/backgrounds/Icon/tick-circle.png')
 };
 
 export default images;

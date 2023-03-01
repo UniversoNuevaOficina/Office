@@ -10,7 +10,9 @@ export default StyleSheet.create({
   },
   notificationBox: {
     paddingHorizontal: 35,
-    paddingVertical: 20,
+    paddingVertical: 10,
+    borderBottomLeftRadius:20,
+    borderBottomRightRadius:20,
   },
   dateText: {
     fontFamily: 'Montserrat',

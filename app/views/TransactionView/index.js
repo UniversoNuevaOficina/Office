@@ -124,10 +124,12 @@ const TransactionView = props => {
   };
 
   return (
-    <MainScreen style={{backgroundColor: COLOR_DARKBLACK}}>
+    <MainScreen style={{backgroundColor: "#141436"}}>
+      <View style ={{backgroundColor:"#02010c",borderBottomLeftRadius:30,borderBottomRightRadius:30}}>
       <StatusBar />
       <MainHeader />
       <SearchTransaction />
+      </View>
       <TabView
         navigationState={{index, routes}}
         renderScene={renderScene}

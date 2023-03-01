@@ -40,6 +40,10 @@ export const Button = isAndroid ? Touch : TouchableOpacity;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    borderStyle:"solid",
+    borderBottomLeftRadius:30,
+    borderBottomRightRadius:30,
+
   },
   mainTabContainer: {
     position: 'absolute',
@@ -47,6 +51,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+    
   },
   topLinearGradient: {
     height: 4,
@@ -61,6 +66,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 19,
     paddingBottom: 20,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    borderStyle: "solid"
   },
   tabContainer: {
     flexDirection: 'column',
@@ -381,7 +389,7 @@ const MainView = props => {
         {backgroundColor: themes[theme].backgroundColor},
       ]}>
       <SafeAreaView />
-      <View style={[styles.container, style]}>
+      <View style={[styles.container,style]}>
         {hasSearch && (
           <SearchBox
             onChangeText={onSearchChangeText}

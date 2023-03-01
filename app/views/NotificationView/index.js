@@ -60,14 +60,14 @@ const NotificationView = props => {
       text: 'Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit ipsum dolor sit amet, conse ctetuer adipiscing’',
     },
   ];
-  const currentDate = 13;
+  const currentDate = 15;
 
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
     <MainScreen
-      style={{backgroundColor: COLOR_ULTRAMARINE, paddingBottom: tabBarHeight}}>
-      <View style={{backgroundColor: COLOR_DARKBLACK, marginBottom: 20}}>
+      style={{backgroundColor: COLOR_ULTRAMARINE, paddingBottom: tabBarHeight-30,filter:"blur(250px)"}}>
+      <View style={{backgroundColor: COLOR_DARKBLACK, marginBottom: 20,borderBottomLeftRadius:30,borderBottomRightRadius:30}}>
         <StatusBar />
         <MainHeader />
         <View style={styles.notificationBox}>

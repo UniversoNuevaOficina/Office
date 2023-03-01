@@ -11,7 +11,7 @@ import {VectorIcon} from '../../containers/VectorIcon';
 
 const RecentActivity = ({name}) => {
   return (
-    <View style={{paddingHorizontal: 28}}>
+    <View style={{paddingHorizontal: 28,paddingVertical:20}}>
       <Text style={[styles.recentActivityText, {color: COLOR_WHITE}]}>
         Recent Activities
       </Text>

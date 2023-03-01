@@ -252,4 +252,11 @@ export default StyleSheet.create({
     fontFamily: 'Montserrat',
     fontSize: 12,
   },
+  backgroundImage: {
+    flex:1,
+    resizeMode:"cover",
+    justifyContent:"center",
+    height:"125%",
+  },
+ 
 });

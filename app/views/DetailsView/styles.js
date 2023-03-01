@@ -165,4 +165,9 @@ export default StyleSheet.create({
     marginTop: 18,
     textAlign: 'center',
   },
+  backgroundImage: {
+    flex:1,
+    resizeMode:"cover",
+    height:"105%",
+  },
 });

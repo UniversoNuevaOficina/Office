@@ -16,8 +16,8 @@ const TransactionItem = ({data}) => {
   return (
     <View style={{paddingHorizontal: 28, marginBottom: 9}}>
       <TouchableOpacity
-        style={[styles.TransactionItemBox, {backgroundColor: COLOR_BLACK}]}
-        // onPress={() => navigation.push('Hayek')}
+        style={[styles.TransactionItemBox, {backgroundColor: COLOR_BLACK,borderRadius:12}]}
+        onPress={() => navigation.navigate('Hayek')}
       >
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View>

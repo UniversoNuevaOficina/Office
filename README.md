@@ -1,5 +1,5 @@
-# Universo Office app
-React Native 
+# VIP-Billionaires
+React Native &amp; Firebase
 
 ## Getting Started
 
